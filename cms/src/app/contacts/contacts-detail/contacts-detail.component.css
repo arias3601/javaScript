@@ -1,0 +1,14 @@
+h3{
+  display: inline;
+}
+a {
+  float: right;
+}
+.panel {
+  margin-left: 15%;
+  padding: 0px;
+  width: 100%;
+}
+button {
+  margin: 3px;
+}
