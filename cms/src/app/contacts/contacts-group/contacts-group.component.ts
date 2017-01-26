@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, OnChanges, Input} from '@angular/core';
 import {Contact} from "../contact";
 
 @Component({
@@ -8,9 +8,14 @@ import {Contact} from "../contact";
 })
 export class ContactsGroupComponent implements OnInit {
   @Input() selectedContact: Contact;
+  groupContacts: Contact[] = [];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(){
+    this.groupContacts = this.selectedContact.group;
   }
 
 }
