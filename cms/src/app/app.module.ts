@@ -8,8 +8,7 @@ import { HeaderComponent } from './header.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactItemComponent } from './contacts/contact-list/contact-item.component';
-import { ContactsDetailComponent } from './contacts/contacts-detail/contacts-detail.component';
-import { ContactsGroupComponent } from './contacts/contacts-group/contacts-group.component';
+import { ContactsDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { DropdownDirective } from './dropdown.directive';
 import {ContactsService} from "./contacts/contacts.service";
 import { MessagesComponent } from './messages/messages.component';
@@ -18,6 +17,13 @@ import { MessageItemComponent } from './messages/message-list/message-item.compo
 import { DocumentsComponent } from './documents/documents.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
 import { DocumentItemComponent } from './documents/document-list/document-item.component';
+import {routing} from "./app-routing";
+import { MessageNewComponent } from './messages/message-new/message-new.component';
+import { DocumentViewComponent } from './documents/document-view/document-view.component';
+import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
+import {DocumentsService} from "./documents/documents.service";
+import {WindRefService} from "./wind-ref.service";
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,21 +33,25 @@ import { DocumentItemComponent } from './documents/document-list/document-item.c
     ContactListComponent,
     ContactItemComponent,
     ContactsDetailComponent,
-    ContactsGroupComponent,
     DropdownDirective,
     MessagesComponent,
     MessageListComponent,
     MessageItemComponent,
     DocumentsComponent,
     DocumentListComponent,
-    DocumentItemComponent
+    DocumentItemComponent,
+    MessageNewComponent,
+    DocumentViewComponent,
+    DocumentEditComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [ContactsService],
+  providers: [ContactsService, DocumentsService, WindRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

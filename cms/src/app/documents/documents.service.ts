@@ -3,17 +3,20 @@ import {Document} from "./document";
 import {MOCKDOCUMENTS} from "./MOCKDOCUMENTS";
 @Injectable()
 export class DocumentsService {
-  private documents: Document[] = [];
+  private document: Document[] = [];
 
   constructor() { }
 
   getDocuments(){
-    this.documents = MOCKDOCUMENTS;
-    return this.documents;
+    this.document = MOCKDOCUMENTS;
+    return this.document;
   }
   getDocument(idx:number){
-    this.documents = MOCKDOCUMENTS;
-    return this.documents[idx];
+    this.document = MOCKDOCUMENTS;
+    return this.document[idx];
+  }
+  deleteDocument(document: Document){
+    this.document.splice(this.document.indexOf(document), 1)
   }
 
 }

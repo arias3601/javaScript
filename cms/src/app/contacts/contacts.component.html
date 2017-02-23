@@ -1,9 +1,8 @@
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-sm-4 col-sx-12">
     <cms-contact-list (selectedContactEmit)="selectedContact = $event"> </cms-contact-list>
   </div>
-  <div class="col-md-4" *ngIf="selectedContact != null">
-    <cms-contacts-detail *ngIf="selectedContact.group == null" [selectedContact]="selectedContact"></cms-contacts-detail>
-    <cms-contacts-group *ngIf="selectedContact.group != null" [selectedContact]="selectedContact"></cms-contacts-group>
+  <div class="col-sm-6 col-sm-offset-1 col-sx-12">
+    <router-outlet></router-outlet>
   </div>
 </div>
