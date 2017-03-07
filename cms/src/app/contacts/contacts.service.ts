@@ -3,9 +3,16 @@ import {Contact} from "./contact";
 
 @Injectable()
 export class ContactsService {
+  contacts: Contact[] = [];
+  currentContact: Contact;
+  constructor() {
+    //this.contacts = this.initContacts();
+    this.currentContact = new Contact("18", "Asher Harris", "har13013@byui.edu", "801-989-2378", "http://purplesphere.net/images/me.jpg", null);
+  }
 
-  constructor() { }
-  private contacts: Contact[] = [];
+  getCurrentContacts(){
+    return this.currentContact;
+  }
 
   getContacts() {
     this.contacts[0] = new Contact("1", "Rex Barzee", "barzeer@byui.edu", "208-496-3768",
@@ -36,7 +43,7 @@ export class ContactsService {
       "../../images/thompsonda.jpg", null),
 
     // group Contacts
-    this.contacts[13] = new Contact("a4", "Network/OS team", " ", " ", " ",
+    this.contacts[13] = new Contact("4", "Network/OS team", " ", " ", " ",
       [this.contacts[1], this.contacts[5], this.contacts[8], this.contacts[9]]),
     this.contacts[14] = new Contact("6", "Software Development team", " ", " ", " ",
       [this.contacts[0], this.contacts[2], this.contacts[4], this.contacts[8]]),
@@ -65,6 +72,40 @@ export class ContactsService {
       return 1;
     return 0;
 
+  }
+
+  getContactById(id: string): Contact{
+    return this.contacts.find((contact: Contact) => contact.contactId === id);
+  }
+
+  addContact(contact: Contact){
+    if(!contact){
+      return;
+    }
+    this.contacts.push(contact);
+    this.contacts = this.contacts.sort(this.compareNames);
+  }
+
+  updateContact(oldContact: Contact, newContact: Contact){
+    if(!oldContact || !newContact){
+      return;
+    }
+    this.contacts[this.contacts.indexOf(oldContact)] = newContact;
+    this.contacts = this.contacts.sort(this.compareNames);
+  }
+
+  deleteContact(contact: Contact){
+    if(!contact){
+      return;
+    }
+
+    const pos = this.contacts.indexOf(contact);
+    if (pos < 0){
+      return;
+    }
+
+    this.contacts.splice(pos, 1);
+    this.contacts = this.contacts.sort(this.compareNames);
   }
 
 }

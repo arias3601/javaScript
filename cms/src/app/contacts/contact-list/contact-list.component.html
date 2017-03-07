@@ -5,7 +5,7 @@
   </div>
   <div class="pannel-body">
     <ul class="list-group">
-      <cms-contact-item *ngFor="let contact of contacts; let i = index" [contact]="contact" [contactIdx]="i" (click)="onSelected(contact)"></cms-contact-item>
+      <cms-contact-item *ngFor="let contact of contacts; let i = index" [contact]="contact" [contactIdx]="i"  dnd-draggable [dragEnabled]="true" [dragData]="contact" [dropZones]="['dropHere']"></cms-contact-item>
     </ul>
   </div>
 </div>

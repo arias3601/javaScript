@@ -19,4 +19,11 @@ export class DocumentsService {
     this.document.splice(this.document.indexOf(document), 1)
   }
 
+  updateDocument(oldDoc: Document, newDoc: Document){
+    this.document[this.document.indexOf(oldDoc)] = newDoc;
+  }
+
+  addDocument(newDoc: Document){
+    this.document.push(newDoc);
+  }
 }
