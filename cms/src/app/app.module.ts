@@ -27,6 +27,7 @@ import {WindRefService} from "./wind-ref.service";
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import {MessagesService} from "./messages/messages.service";
 import {ContactGroupItemComponent} from "./contacts/contact-edit/contact-group-item.component";
+import { ContactsFiliterPipe } from './contacts/contacts-filiter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,14 +49,15 @@ import {ContactGroupItemComponent} from "./contacts/contact-edit/contact-group-i
     DocumentEditComponent,
     ContactEditComponent,
     MessageNewComponent,
-    ContactGroupItemComponent
+    ContactGroupItemComponent,
+    ContactsFiliterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     DndModule.forRoot(),
-    routing
+    routing,
   ],
   providers: [ContactsService, DocumentsService, WindRefService, MessagesService],
   bootstrap: [AppComponent]

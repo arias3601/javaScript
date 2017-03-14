@@ -14,6 +14,9 @@ export class MessageListComponent implements OnInit {
 
   ngOnInit() {
     this.messages = this.messageService.getMessages();
+    this.messageService.getMessageEmitter.subscribe(
+      (documnet: Document[]) => this.messages = documnet
+    );
   }
 
 

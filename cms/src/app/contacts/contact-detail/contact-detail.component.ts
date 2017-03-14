@@ -22,7 +22,7 @@ export class ContactsDetailComponent implements OnInit, OnDestroy {
     this.subscription = this.activatedRotuer.params.subscribe(
       (params:any) => {
         this.contactIdx = params['idx'];
-        this.contact = this.cs.getContact(this.contactIdx);
+        this.contact = this.cs.getContactById(this.contactIdx + "");
         this.contactGroup = this.contact.group;
       }
     )

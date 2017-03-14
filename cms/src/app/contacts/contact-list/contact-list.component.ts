@@ -6,12 +6,14 @@ import {ContactsService} from "../contacts.service";
 @Component({
   selector: 'cms-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  styleUrls: ['./contact-list.component.css'],
+
 })
 
 export class ContactListComponent implements OnInit {
   contact: Contact = null;
   contacts: Contact[] = [];
+  term: string;
 
   @Output() selectedContactEmit = new EventEmitter<Contact>();
 
@@ -27,6 +29,10 @@ export class ContactListComponent implements OnInit {
     this.selectedContactEmit.emit(contact);
   }
 
+  onKeyPress(value: string){
+    console.log("HERE")
+    this.term = value;
+  }
 
 }
 
